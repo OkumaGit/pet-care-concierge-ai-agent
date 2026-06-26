@@ -12,11 +12,11 @@ To meet and exceed the official Capstone evaluation criteria, this agent success
 
 ### 1. Agent Skills (Tools & Function Calling)
 The agent's capabilities are extended beyond native text generation using two persistent Python tools:
-* save_health_log(event_description, cost): Dynamically captures user entries, structures them as JSON, and appends a precise server timestamp (%Y-%m-%d %H:%M).
-* read_health_log(): Safely parses historical data from the local JSON storage, feeding it back into the model's active context window.
+* `save_health_log(event_description, cost)`: Dynamically captures user entries, structures them as JSON, and appends a precise server timestamp (%Y-%m-%d %H:%M).
+* `read_health_log()`: Safely parses historical data from the local JSON storage, feeding it back into the model's active context window.
 
 ### 2. Agent / Multi-agent system (ADK & Contextual Memory)
-Utilizing native client.chats.create session management, the agent maintains an active short-term memory. It doesn't just read raw files — it can reason over past context. For example, if asked "How much did I spend today?", it fetches historical logs via its reading tool, filters entries matching the current date, and aggregates total costs in real-time.
+Utilizing native `client.chats.create` session management, the agent maintains an active short-term memory. It doesn't just read raw files — it can reason over past context. For example, if asked "How much did I spend today?", it fetches historical logs via its reading tool, filters entries matching the current date, and aggregates total costs in real-time.
 
 ### 3. Security Features (Strict Guardrails)
 An unbreakable behavioral perimeter is defined within the SYSTEM_INSTRUCTION. The agent is strictly barred from practicing veterinary medicine. If it detects life-threatening or critical symptoms (e.g., shaking, bleeding, responsiveness issues), it instantly halts standard conversational and logging routines to trigger a prominent, mandatory medical warning block, refusing to prescribe unsupervised drug dosages.
@@ -35,10 +35,10 @@ Follow these instructions to clone, configure, and execute the AI Agent locally.
 ```bash
 git clone [https://github.com/OkumaGit/pet-care-concierge-ai-agent.git](https://github.com/OkumaGit/pet-care-concierge-ai-agent.git)
 cd pet-care-concierge-ai-agent
-### 3. Install the Official Google GenAI SDK
+3. Install the Official Google GenAI SDK
 Bash
 pip install -U google-genai
-### 4. Configure Your API Key (Hybrid Environment Support)
+4. Configure Your API Key (Hybrid Environment Support)
 The codebase includes a resilient try-except boundary. It automatically detects if it is running inside a cloud container or on a physical desktop:
 
 Local PC Deployment: Set your key as an environment variable:
@@ -49,7 +49,7 @@ Windows (CMD): set GEMINI_API_KEY="your_actual_api_key"
 
 Kaggle Notebook Deployment: Simply add your key to Kaggle Secrets under the label GEMINI_API_KEY. The code will automatically retrieve it using UserSecretsClient().
 
-### 5. Launch the Agent
+5. Launch the Agent
 Run the interactive console script:
 
 Bash
