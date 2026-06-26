@@ -33,7 +33,7 @@ Follow these instructions to clone, configure, and execute the AI Agent locally.
 
 ### 2. Clone the Repository
 ```bash
-git clone [https://github.com/OkumaGit/pet-care-concierge-ai-agent.git](https://github.com/OkumaGit/pet-care-concierge-ai-agent.git)
+git clone https://github.com/OkumaGit/pet-care-concierge-ai-agent.git
 cd pet-care-concierge-ai-agent
 ```
 
