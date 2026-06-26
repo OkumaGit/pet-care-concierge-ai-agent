@@ -57,8 +57,8 @@ Windows (CMD):
 set GEMINI_API_KEY="your_actual_api_key"
 ```
 
-### Kaggle Notebook Deployment: 
-Simply add your key to Kaggle Secrets under the label GEMINI_API_KEY. The code will automatically retrieve it using UserSecretsClient().
+#### Kaggle Notebook Deployment: 
+Simply add your key to Kaggle Secrets under the label * `GEMINI_API_KEY`. The code will automatically retrieve it using * `UserSecretsClient()`.
 
 ### 5. Launch the Agent
 Run the interactive console script:
