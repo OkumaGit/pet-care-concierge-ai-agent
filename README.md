@@ -35,25 +35,34 @@ Follow these instructions to clone, configure, and execute the AI Agent locally.
 ```bash
 git clone [https://github.com/OkumaGit/pet-care-concierge-ai-agent.git](https://github.com/OkumaGit/pet-care-concierge-ai-agent.git)
 cd pet-care-concierge-ai-agent
-3. Install the Official Google GenAI SDK
-Bash
+```
+
+### 3. Install the Official Google GenAI SDK
+```bash
 pip install -U google-genai
-4. Configure Your API Key (Hybrid Environment Support)
+```
+
+### 4. Configure Your API Key (Hybrid Environment Support)
 The codebase includes a resilient try-except boundary. It automatically detects if it is running inside a cloud container or on a physical desktop:
 
 Local PC Deployment: Set your key as an environment variable:
 
-Linux/macOS: export GEMINI_API_KEY="your_actual_api_key"
+Linux/macOS:
+export GEMINI_API_KEY="your_actual_api_key"
+Windows (CMD):
 
-Windows (CMD): set GEMINI_API_KEY="your_actual_api_key"
-
+DOS
+set GEMINI_API_KEY="your_actual_api_key"
 Kaggle Notebook Deployment: Simply add your key to Kaggle Secrets under the label GEMINI_API_KEY. The code will automatically retrieve it using UserSecretsClient().
 
-5. Launch the Agent
+
+### 5. Launch the Agent
 Run the interactive console script:
 
-Bash
+```bash
 python agent.py
+```
+
 Production-Grade Resilience (Rate-Limit Handling)
 To counter the strict burst-capacity filters on the Free Tier shared infrastructure, the agent implements an active pacing strategy. When run in automated evaluation mode, the script introduces a strategic 65-second cooldown delay between distinct user turns. This allows the Free Tier quota window to completely reset, preventing 429 / RESOURCE_EXHAUSTED deadlocks and ensuring pristine, fully completed generation logs for evaluation judges.
 
